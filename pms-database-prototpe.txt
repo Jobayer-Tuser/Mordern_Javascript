@@ -1,0 +1,132 @@
+Database Design
+Date : 22 Sep 2020
+
+
+clients
+	id()
+	(string)client_name
+	(string)client_phone
+	(string)client_email
+	(string)client_address
+	(string)client_type
+	(string)client_status
+	(string)created_by
+	updated_by
+	created_at
+	updated_at
+
+project_categories
+	id
+	(STRING)category_name [ Ecommerce, ERP, Corporate Web development… ]
+	(STRING)category_status  [enum : Active, Inactive]
+	(STRING)created_by
+	(STRING)updated_by
+	(STRING)created_at
+	updated_at
+
+technologies
+	Id
+	technology_title
+	technology_status  [enum : Active, Inactive]
+	created_by
+	updated_by
+	created_at
+	updated_at
+
+project_types
+	id
+	Type_title [Internal, External, SBU]
+	type_status [enum : Active, Inactive]
+	created_by
+	updated_by
+	created_at
+	updated_at
+
+project_COA:
+	id
+	project_id(foreign key)
+	client_id(foreign key)
+	attachment [cod/coa](filetype)
+	created_by
+	updated_by
+	created_at
+	updated_at
+
+kams
+	id
+	kam_name
+	kam_phone
+	kam_email
+	kam_designation
+	Kam_type [enum : Client Side, Company Side]
+	created_by
+	updated_by
+	created_at
+	Updated_at
+
+employees
+	id
+	employee_name
+	employee_phone
+	employee_email
+	employee_designation
+	employee_status
+	created_by
+	updated_by
+	created_at
+	updated_at
+
+time_calculations
+	id
+	project_id(foreign key)
+	working_date(timestamps)
+	employee_id(foreignkey)
+	working_status [enum : Active, Inactive]
+	created_by
+	updated_by
+	created_at
+	updated_at
+
+project_costs
+	id
+	project_id(foreignkey)
+	costing_type [enum : Closing Price, Paid CR, Non Paid CR ]
+	amount(float)
+	created_by
+	updated_by
+	created_at
+	updated_at
+
+projects
+	id
+	client_id(foreignkey
+	Project_name
+	project_category_id(foreignkey
+	project_type_id(foreignkey
+	project_technology_id(foreignkey
+	workorder_issue_date
+	project_start_date
+	prototype_submission_date
+	development_permission_date
+	development_start_date
+	development_complete_date
+	project_closing_date
+	kam_id(foreignkey
+	team_lead_id(foreignkey
+	employee_id	(foreignkey 1 to many )[* multiple employees]
+	repository (bool : 1,0)
+	repository_link(string)
+	created_by
+	updated_by
+	created_at
+	updated_at
+
+project_links
+	Id
+	project_id(foreignkey)
+	link_type [ enum : prototype, stage, live]
+	link_status [enum : Active, Inactive]
+	created_by
+	updated_by
+	created_at
+	updated_at
